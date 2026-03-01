@@ -1,0 +1,142 @@
+<h1 id="докладчик">Докладчик</h1>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Лащиков Алексей Антонович</li>
+<li>НКАбд-04-25</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="mailto:1032253527@rudn.ru">1032253527@rudn.ru</a></li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div>
+<h1 id="цель-и-задачи">Цель и задачи</h1>
+<p><strong>Цель:</strong> Получение навыков правильной работы с
+репозиториями git.</p>
+<p><strong>Задачи:</strong></p>
+<ul>
+<li>Выполнить работу для тестового репозитория.</li>
+<li>Преобразовать рабочий репозиторий в репозиторий с git-flow и
+conventional commits.</li>
+</ul>
+<h1 id="gitflow-идея">Gitflow: идея</h1>
+<p>Gitflow — модель ветвления для проектов, где важны релизы и
+версия.</p>
+<ul>
+<li>master — официальная история релизов (теги версий)</li>
+<li>develop — интеграционная ветка разработки</li>
+<li>feature/* — разработка новых функций</li>
+<li>release/* — подготовка релиза</li>
+<li>hotfix/* — срочные исправления из master</li>
+</ul>
+<h1 id="gitflow-базовые-команды">Gitflow: базовые команды</h1>
+<p>Инициализация:</p>
+<pre><code>git flow init
+git branch</code></pre>
+<p>Feature:</p>
+<pre><code>git flow feature start feature_branch
+git flow feature finish feature_branch</code></pre>
+<p>Release:</p>
+<pre><code>git flow release start 1.0.0
+git flow release finish 1.0.0</code></pre>
+<h1 id="conventional-commits">Conventional Commits</h1>
+<p>Conventional Commits — соглашение о сообщениях коммитов, чтобы:</p>
+<ul>
+<li>проще понимать историю;</li>
+<li>автоматически строить CHANGELOG;</li>
+<li>увязать коммиты с SemVer.</li>
+</ul>
+<h1 id="conventional-commits-формат">Conventional Commits: формат</h1>
+<p>Структура:</p>
+<pre><code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+
+&lt;body&gt;
+
+&lt;footer&gt;</code></pre>
+<p>Примеры типов:</p>
+<ul>
+<li><code>fix:</code> — коммит типа fix исправляет ошибку в вашем
+коде.</li>
+<li><code>feat:</code> — коммит типа feat добавляет новую функцию в ваш
+код.</li>
+<li><code>BREAKING CHANGE:</code> — коммит, который добавляет изменения,
+нарушающие обратную совместимость вашего API.</li>
+<li>также часто: <code>docs:</code>, <code>chore:</code>,
+<code>refactor:</code>, <code>test:</code>.</li>
+</ul>
+<h1 id="ход-работы">Ход работы</h1>
+<p>В работе я собрал тестовый репозиторий и перевёл его на связку
+gitflow и conventional commits, чтобы получить релизный процесс:
+отдельные ветки под разработку релизы, теги версий и автоматический
+CHANGELOG.</p>
+<h1 id="подготовка-окружения">Подготовка окружения</h1>
+<p>Сначала установил нужные инструменты: git-flow для модели ветвления и
+Node.js + pnpm для утилит, связанных с conventional commits и журналом
+изменений (см. <a href="#fig-001">рис.1</a>).</p>
+<figure id="fig-001">
+<img src="image/1.png" style="width:70.0%"
+alt="Установка и настройка инструментов" />
+<figcaption aria-hidden="true">Установка и настройка
+инструментов</figcaption>
+</figure>
+<h1 id="настройка-коммитов-и-журнала-изменений">Настройка коммитов и
+журнала изменений</h1>
+<p>Дальше настроил:</p>
+<ul>
+<li>commitizen для удобного ввода сообщений коммитов по Conventional
+Commits,</li>
+<li>standard-changelog для генерации CHANGELOG.md на основе истории
+коммитов.</li>
+</ul>
+<figure id="fig-002">
+<img src="image/6.png" style="width:30.0%"
+alt="Настройка conventional commits и changelog" />
+<figcaption aria-hidden="true">Настройка conventional commits и
+changelog</figcaption>
+</figure>
+<h1 id="gitflow-в-репозитории">Gitflow в репозитории</h1>
+<p>После этого инициализировал git-flow и привёл репозиторий к схеме
+master/develop, чтобы дальше делать релизы.</p>
+<figure id="fig-011">
+<img src="image/11.png" style="width:60.0%"
+alt="Инициализация git-flow" />
+<figcaption aria-hidden="true">Инициализация git-flow</figcaption>
+</figure>
+<h1 id="релизы-и-публикация">Релизы и публикация</h1>
+<p>Затем выполнил релизный цикл:</p>
+<p>Cоздание release-ветки, обновление CHANGELOG, завершение релиза, пуш
+веток и тегов, релиз на GitHub.</p>
+<figure id="fig-014">
+<img src="image/14.png" style="width:25.0%" alt="Релиз и публикация" />
+<figcaption aria-hidden="true">Релиз и публикация</figcaption>
+</figure>
+<h1 id="проверка-рабочего-сценария">Проверка рабочего сценария</h1>
+<p>В конце прогнал типовой процесс:</p>
+<p>Работа через feature-ветку и выпуск следующей версии.</p>
+<figure id="fig-016">
+<img src="image/16.png" style="width:60.0%"
+alt="Feature и следующий релиз" />
+<figcaption aria-hidden="true">Feature и следующий релиз</figcaption>
+</figure>
+<h1 id="преобразование-рабочего-репозитория">Преобразование рабочего
+репозитория</h1>
+<p>По заданию преобразовал основной репозиторий для загрузки
+лабораторных работ в репозиторий с git-flow и conventional commits.</p>
+<figure id="fig-015">
+<img src="image/20.png" style="width:40.0%"
+alt="Выполнение git flow init, настройка master и develop, префиксов веток и префиксв тегов v. Проверка, появления веток и отправка на GitHub" />
+<figcaption aria-hidden="true">Выполнение git flow init, настройка
+master и develop, префиксов веток и префиксв тегов v. Проверка,
+появления веток и отправка на GitHub</figcaption>
+</figure>
+<h1 id="выводы">Выводы</h1>
+<p>В ходе данной лабораторной работы я:</p>
+<ul>
+<li>Разобрал модель Gitflow и назначение веток master, develop, feature,
+release, hotfix.</li>
+<li>Настроил conventional commits и генерацию CHANGELOG.</li>
+<li>Выполнил практический сценарий с релизами и тегами.</li>
+<li>Перенёс рабочий репозиторий в формат git-flow и conventional
+commits.</li>
+</ul>
