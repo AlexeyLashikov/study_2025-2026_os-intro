@@ -1,0 +1,184 @@
+---
+lang: ru-RU
+title: "Первый этап реализации индивидуального проекта"
+subtitle: "Размещение на Github pages заготовки для персонального сайта"
+author: "Лащиков Алексей Антонович"
+institute: "Российский университет дружбы народов, Москва, Россия"
+date: 2026-03-04
+date-format: "YYYY-MM-DD"
+
+toc: false
+section-titles: false
+
+format:
+  revealjs:
+    theme: night
+    slide-number: true
+    hash: true
+    transition: slide
+    center: false
+    navigation-mode: linear
+    width: 1920
+    height: 1200
+    margin: 0.2
+
+  beamer:
+    theme: metropolis
+    colortheme: default
+    aspectratio: 169
+    pdf-engine: xelatex
+    include-in-header:
+      - text: |
+          \metroset{progressbar=frametitle,sectionpage=none,numbering=fraction}
+          \usepackage{fontspec}
+          \usepackage{polyglossia}
+          \setdefaultlanguage{russian}
+          \setotherlanguage{english}
+          \defaultfontfeatures{Ligatures=TeX}
+          \setsansfont{Segoe UI}
+          \setmainfont{Times New Roman}
+          \setmonofont{Consolas}
+          \usepackage{graphicx}
+          \setkeys{Gin}{keepaspectratio}
+---
+# Докладчик
+
+:::::::::::::: {.columns align=center}
+::: {.column width="70%"}
+
+  * Лащиков Алексей Антонович
+  * Студент группы НКАбд-04-25
+  * Российский университет дружбы народов им. П. Лумумбы
+  * [1032253527@rudn.ru](mailto:1032253527@rudn.ru)
+  * <https://alexeylashikov.github.io/>
+
+:::
+::: {.column width="30%"}
+
+![](./image/photo.jpg)
+
+:::
+::::::::::::::
+
+# Цель и задачи
+
+**Цель:** развернуть заготовку персонального сайта на базе генератора статических сайтов Hugo и опубликовать сайт на GitHub Pages с автоматической сборкой через GitHub Actions.
+
+**Задачи:**
+
+- Установить необходимое программное обеспечение.
+- Скачать шаблон темы сайта.
+- Разместить его на хостинге git.
+- Установить параметр для URLs сайта.
+- Разместить заготовку сайта на Github pages.
+
+# GitHub Pages
+
+GitHub Pages — сервис публикации статических сайтов, который позволяет размещать веб-страницы напрямую из GitHub-репозитория.
+
+- адрес сайта: `https://username.github.io/`
+- источник публикации: ветка/папка или **GitHub Actions**
+- удобно для портфолио и документации проектов
+
+# Hugo
+
+Hugo — генератор статических сайтов.
+
+- собирает сайт из контента и темы в HTML/CSS/JS
+- быстрый локальный предпросмотр
+
+# GitHub Actions
+
+Для автоматизации сборки и публикации удобно использовать GitHub Actions.
+
+- сборка запускается в основную ветку
+- уменьшает количество ручных действий
+
+# Ход работы
+
+В ходе работы я настроил окружение, запустил сайт локально, создал репозиторий `alexeylashikov.github.io`, включил GitHub Pages и добавил workflow GitHub Actions для автоматической сборки и деплоя сайта.
+
+# Установка необходимого ПО
+
+Сначала установил Git, Go и Node.js (@fig-001).
+
+![Установка Git, Go и Node.js](image/1.png){#fig-001 width=80%}
+
+# Установка Hugo
+
+Установил Hugo Extended, чтобы корректно собирать проект (@fig-002).
+
+![Установка Hugo Extended](image/2.png){#fig-002 width=100%}
+
+# Получение шаблона сайта
+
+Склонировал шаблон, установил `pnpm` и зависимости проекта (@fig-003).
+
+![Клонирование шаблона и установка pnpm](image/3.png){#fig-003 width=40%}
+
+# Локальный запуск
+
+Запустил локальный сервер Hugo (@fig-004), убедился, что сборка проходит без ошибок и сайт открывается по адресу `http://localhost:1313/`.
+
+![Запуск локального сервера Hugo](image/4.png){#fig-004 width=40%}
+
+# Создание репозитория GitHub
+
+Для публикации сайта создал публичный репозиторий `alexeylashikov.github.io` для GitHub Pages (@fig-006).
+
+![Создание репозитория](image/6.png){#fig-006 width=40%}
+
+# Настройка baseURL
+
+Открыл файл конфигурации `hugo.yaml` и задал параметр `baseURL`, соответствующий будущему адресу GitHub Pages (@fig-007).
+
+![Настройка baseURL в hugo.yaml](image/7.png){#fig-007 width=100%}
+
+# Подготовка контента для стабильной сборки
+
+Для стабильной сборки в CI отключил демо-блог, так как он содержал внешние ресурсы и мог ломать сборку (@fig-008). Перенёс каталог `content/blog` в отдельную папку `content-disabled/blog`
+
+![Временное отключение демо-блога](image/8.png){#fig-008 width=50%}
+
+# Публикация проекта
+
+Инициализировал git-репозиторий в проекте, создал коммит и отправил проект в репозиторий на GitHub (@fig-009).
+
+![Коммит и публикация проекта](image/9.png){#fig-009 width=40%}
+
+# Включение GitHub Pages
+
+В настройках репозитория открыл раздел **Pages** и выбрал источник публикации **GitHub Actions** (@fig-010).
+
+![Включение GitHub Pages с источником GitHub Actions](image/10.png){#fig-010 width=90%}
+
+# Workflow GitHub Actions
+
+Добавил workflow `.github/workflows/hugo.yml` для сборки и деплоя (@fig-011):
+
+- установка Hugo Extended;
+- установка Node.js и зависимостей `pnpm`;
+- сборка сайта (`hugo --minify`);
+- публикация на GitHub Pages.
+
+![Workflow GitHub Actions](image/11.png){#fig-011 width=30%}
+
+# Коммит workflow
+
+После добавления workflow сделал коммит и отправил изменения в репозиторий (@fig-012).
+
+![Коммит workflow](image/12.png){#fig-012 width=100%}
+
+# Проверка результата
+
+Открыл опубликованный сайт по адресу `https://alexeylashikov.github.io/` и убедился, что сайт доступен и корректно отображается (@fig-013).
+
+![Опубликованный сайт](image/13.png){#fig-013 width=70%}
+
+# Выводы
+
+- Установил необходимое программное обеспечение.
+- Скачал шаблон темы сайта.
+- Разместил его на хостинге git.
+- Установил параметр для URLs сайта.
+- Разместил заготовку сайта на Github pages.

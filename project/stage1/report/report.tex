@@ -1,0 +1,476 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Times New Roman}
+  \setsansfont[]{Arial}
+  \setmonofont[]{Consolas}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{setspace}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\usepackage{csquotes}
+\usepackage{caption}
+\captionsetup[figure]{name=Рисунок}
+\captionsetup[table]{name=Таблица}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Рисунок}
+\else
+  \newcommand\figurename{Рисунок}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Таблица}
+\else
+  \newcommand\tablename{Таблица}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Отчёт по первому этапу реализации индивидуального проекта},
+  pdfauthor={Лащиков Алексей Антонович},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Отчёт по первому этапу реализации индивидуального проекта}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Размещение на Github pages заготовки для персонального сайта}
+\author{Лащиков Алексей Антонович}
+\date{}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Содержание}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\setstretch{1.2}
+\section{Цель
+работы}\label{ux446ux435ux43bux44c-ux440ux430ux431ux43eux442ux44b}
+
+Цель данного этапа --- развернуть заготовку персонального сайта на базе
+генератора статических сайтов Hugo и опубликовать сайт на GitHub Pages с
+автоматической сборкой через GitHub Actions.
+
+\section{Задание}\label{ux437ux430ux434ux430ux43dux438ux435}
+
+\begin{itemize}
+\tightlist
+\item
+  Установить необходимое программное обеспечение.
+\item
+  Скачать шаблон темы сайта.
+\item
+  Разместить его на хостинге git.
+\item
+  Установить параметр для URLs сайта.
+\item
+  Разместить заготовку сайта на Github pages.
+\end{itemize}
+
+\section{Теоретическое
+введение}\label{ux442ux435ux43eux440ux435ux442ux438ux447ux435ux441ux43aux43eux435-ux432ux432ux435ux434ux435ux43dux438ux435}
+
+GitHub Pages --- сервис публикации статических сайтов, который позволяет
+размещать веб-страницы напрямую из GitHub-репозитория. Hugo ---
+генератор статических сайтов, который собирает проект в набор
+HTML/CSS/JS-файлов. Для автоматизации сборки и публикации удобно
+использовать GitHub Actions: при каждом push в ветку \texttt{main}
+выполняется workflow, который устанавливает зависимости, собирает сайт и
+деплоит его на Pages.
+
+В данной работе используется starter-шаблон Wowchemy/HugoBlox на Hugo.
+Для сборки темы применяется TailwindCSS, поэтому в CI требуется
+установка Node.js и зависимостей (через pnpm), чтобы был доступен
+\texttt{tailwindcss}.
+
+\section{Выполнение лабораторной
+работы}\label{ux432ux44bux43fux43eux43bux43dux435ux43dux438ux435-ux43bux430ux431ux43eux440ux430ux442ux43eux440ux43dux43eux439-ux440ux430ux431ux43eux442ux44b}
+
+\subsection{Установка необходимого
+ПО}\label{ux443ux441ux442ux430ux43dux43eux432ux43aux430-ux43dux435ux43eux431ux445ux43eux434ux438ux43cux43eux433ux43e-ux43fux43e}
+
+Открыл командную строку и установил Git, Go и Node.js
+(Рис.~\ref{fig-001}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/1.png}
+
+}
+
+\caption{\label{fig-001}Установка Git, Go и Node.js}
+
+\end{figure}%
+
+Установил Hugo Extended (Рис.~\ref{fig-002}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/2.png}
+
+}
+
+\caption{\label{fig-002}Установка Hugo Extended}
+
+\end{figure}%
+
+\subsection{Получение шаблона
+сайта}\label{ux43fux43eux43bux443ux447ux435ux43dux438ux435-ux448ux430ux431ux43bux43eux43dux430-ux441ux430ux439ux442ux430}
+
+Создал рабочую папку, склонировал starter-шаблон и установил pnpm
+(Рис.~\ref{fig-003}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/3.png}
+
+}
+
+\caption{\label{fig-003}Создание рабочей папки, клонирование репозитория
+и установка pnpm}
+
+\end{figure}%
+
+Запустил локальный сервер Hugo (Рис.~\ref{fig-004}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/4.png}
+
+}
+
+\caption{\label{fig-004}Запуск локального сервера}
+
+\end{figure}%
+
+Убедился, что сайт открывается в браузере по адресу
+\texttt{http://localhost:1313/} (Рис.~\ref{fig-005}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/5.png}
+
+}
+
+\caption{\label{fig-005}Демонстрация сайта}
+
+\end{figure}%
+
+\subsection{Создание репозитория
+GitHub}\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux440ux435ux43fux43eux437ux438ux442ux43eux440ux438ux44f-github}
+
+Для публикации сайта создал публичный репозиторий с именем
+(\texttt{alexeylashikov.github.io}) (Рис.~\ref{fig-006}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/6.png}
+
+}
+
+\caption{\label{fig-006}Создание репозитория}
+
+\end{figure}%
+
+\subsection{Настройка
+baseURL}\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-baseurl}
+
+Открыл файл конфигурации \texttt{hugo.yaml} и задал параметр
+\texttt{baseURL}, соответствующий будущему адресу GitHub Pages
+(Рис.~\ref{fig-007}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/7.png}
+
+}
+
+\caption{\label{fig-007}Настройка baseURL в hugo.yaml}
+
+\end{figure}%
+
+\subsection{Подготовка контента для стабильной
+сборки}\label{ux43fux43eux434ux433ux43eux442ux43eux432ux43aux430-ux43aux43eux43dux442ux435ux43dux442ux430-ux434ux43bux44f-ux441ux442ux430ux431ux438ux43bux44cux43dux43eux439-ux441ux431ux43eux440ux43aux438}
+
+Для стабильной сборки в CI временно отключил демонстрационный блог, так
+как он содержал примеры с загрузкой удалённых изображений, что могло
+приводить к нестабильности сборки. Для этого перенёс каталог
+\texttt{content/blog} в отдельную папку \texttt{content-disabled/blog}
+(Рис.~\ref{fig-008}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/8.png}
+
+}
+
+\caption{\label{fig-008}Временное отключение демо-блога}
+
+\end{figure}%
+
+\subsection{Публикация проекта в
+GitHub}\label{ux43fux443ux431ux43bux438ux43aux430ux446ux438ux44f-ux43fux440ux43eux435ux43aux442ux430-ux432-github}
+
+Инициализировал git-репозиторий в проекте, создал коммит и отправил
+проект в репозиторий на GitHub (Рис.~\ref{fig-009}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/9.png}
+
+}
+
+\caption{\label{fig-009}Коммит и публикация проекта в GitHub}
+
+\end{figure}%
+
+\subsection{Настройка GitHub Pages и GitHub
+Actions}\label{ux43dux430ux441ux442ux440ux43eux439ux43aux430-github-pages-ux438-github-actions}
+
+В настройках репозитория открыл раздел Pages и выбрал источник
+публикации GitHub Actions (Рис.~\ref{fig-010}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/10.png}
+
+}
+
+\caption{\label{fig-010}Включение GitHub Pages с источником GitHub
+Actions}
+
+\end{figure}%
+
+Далее создал workflow для автоматической сборки и деплоя. Файл
+расположен по пути \texttt{.github/workflows/hugo.yml}. В workflow
+добавлены шаги: установка Hugo Extended, установка Node.js, включение
+\texttt{corepack}, установка зависимостей и сборка сайта командой
+\texttt{pnpm\ exec\ hugo\ -\/-minify}, после чего артефакт публикуется
+на GitHub Pages (Рис.~\ref{fig-011}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/11.png}
+
+}
+
+\caption{\label{fig-011}Workflow GitHub Actions для сборки и публикации
+Hugo-сайта}
+
+\end{figure}%
+
+После добавления workflow сделал коммит и отправил изменения в
+репозиторий (Рис.~\ref{fig-012}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/12.png}
+
+}
+
+\caption{\label{fig-012}Workflow GitHub Actions для сборки и публикации
+Hugo-сайта}
+
+\end{figure}%
+
+\subsection{Проверка
+результата}\label{ux43fux440ux43eux432ux435ux440ux43aux430-ux440ux435ux437ux443ux43bux44cux442ux430ux442ux430}
+
+Открыл опубликованный сайт по адресу
+\texttt{https://alexeylashikov.github.io/} и убедился, что сайт доступен
+и корректно отображается (Рис.~\ref{fig-013}).
+
+\begin{figure}
+
+\centering{
+
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{image/13.png}
+
+}
+
+\caption{\label{fig-013}Опубликованный сайт на GitHub Pages}
+
+\end{figure}%
+
+\section{Выводы}\label{ux432ux44bux432ux43eux434ux44b}
+
+В ходе реализации данного этапа была развёрнута заготовка персонального
+сайта на базе генератора статических сайтов Hugo и опубликован сайт на
+GitHub Pages с автоматической сборкой через GitHub Actions.
+
+
+
+
+\end{document}
