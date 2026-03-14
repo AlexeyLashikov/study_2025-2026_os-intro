@@ -188,64 +188,75 @@
 
 <section id="анализ-структуры-проекта" class="title-slide slide level1 center">
 <h1>Анализ структуры проекта</h1>
-<p>Сначала изучил структуру проекта и определил файлы, которые отвечают за профиль владельца сайта, фотографию, имя сайта и блок новостей.</p>
+<p>Сначала изучил структуру проекта и определил файлы, которые отвечают за профиль владельца сайта, фотографию, имя сайта и блок новостей. Общий вид структуры проекта показан на <a href="#/fig-structure" class="quarto-xref">Рисунок&nbsp;1</a>.</p>
 
-<img data-src="image/1.png" style="width:78.0%" class="r-stretch"></section>
+<img data-src="image/1.png" style="width:10.0%" class="r-stretch quarto-figure-center" id="fig-structure"><p class="caption">
+Рис.&nbsp;1: Структура проекта персонального сайта
+</p></section>
 
 <section id="настройка-данных-владельца-сайта" class="title-slide slide level1 center">
 <h1>Настройка данных владельца сайта</h1>
-<p>В файле <code>data/authors/me.yaml</code> заменил демонстрационные сведения на собственные: имя, роль, описание, место обучения, интересы и ссылки на почту и GitHub.</p>
+<p>В файле <code>data/authors/me.yaml</code> заменил демонстрационные сведения на собственные: имя, роль, описание, место обучения, интересы и ссылки на почту и GitHub. Результат редактирования показан на <a href="#/fig-author-data" class="quarto-xref">Рисунок&nbsp;2</a>.</p>
 
-<img data-src="image/3.png" style="width:82.0%" class="r-stretch"></section>
+<img data-src="image/3.png" style="width:20.0%" class="r-stretch quarto-figure-center" id="fig-author-data"><p class="caption">
+Рис.&nbsp;2: Редактирование файла <code>data/authors/me.yaml</code>
+</p></section>
 
 <section id="настройка-имени-сайта" class="title-slide slide level1 center">
 <h1>Настройка имени сайта</h1>
-<p>В файле <code>config/_default/params.yaml</code> изменил параметр <code>name</code>, чтобы в шапке сайта отображалось собственное имя.</p>
+<p>В файле <code>config/_default/params.yaml</code> изменил параметр <code>name</code>, чтобы в шапке сайта отображалось собственное имя. Соответствующее изменение приведено на <a href="#/fig-site-name" class="quarto-xref">Рисунок&nbsp;3</a>.</p>
 
-<img data-src="image/4.png" style="width:82.0%" class="r-stretch"></section>
+<img data-src="image/4.png" style="width:60.0%" class="r-stretch quarto-figure-center" id="fig-site-name"><p class="caption">
+Рис.&nbsp;3: Изменение параметра <code>name</code> в <code>config/_default/params.yaml</code>
+</p></section>
 
 <section id="обновление-фотографии-профиля" class="title-slide slide level1 center">
 <h1>Обновление фотографии профиля</h1>
-<p>Определил путь к файлу фотографии и заменил демонстрационное изображение на собственное в каталоге <code>assets/media/authors</code>.</p>
+<p>Далее определил путь к файлу фотографии и заменил демонстрационное изображение на собственное в каталоге <code>assets/media/authors</code>. Файл изображения показан на <a href="#/fig-avatar-file" class="quarto-xref">Рисунок&nbsp;4</a>.</p>
 
-<img data-src="image/5.png" style="width:78.0%" class="r-stretch"></section>
+<img data-src="image/5.png" style="width:40.0%" class="r-stretch quarto-figure-center" id="fig-avatar-file"><p class="caption">
+Рис.&nbsp;4: Файл фотографии профиля в каталоге <code>assets/media/authors</code>
+</p></section>
 
 <section id="проверка-профиля-на-главной-странице" class="title-slide slide level1 center">
 <h1>Проверка профиля на главной странице</h1>
-<p>После перезапуска локального сервера Hugo проверил, что на главной странице корректно отображаются фотография, имя, описание, образование, интересы и контактные ссылки.</p>
+<p>После перезапуска локального сервера Hugo проверил, что на главной странице корректно отображаются фотография, имя, описание, образование, интересы и контактные ссылки. Результат проверки приведён на <a href="#/fig-profile-main" class="quarto-xref">Рисунок&nbsp;5</a>.</p>
 
-<img data-src="image/6.png" style="width:76.0%" class="r-stretch"></section>
+<img data-src="image/6.png" style="width:76.0%" class="r-stretch quarto-figure-center" id="fig-profile-main"><p class="caption">
+Рис.&nbsp;5: Главная страница сайта после обновления профиля
+</p></section>
 
 <section id="создание-новости-по-прошедшей-неделе" class="title-slide slide level1 center">
 <h1>Создание новости по прошедшей неделе</h1>
-<p>Для первой записи создал страницу командой <code>hugo new content blog/week-summary/index.md</code>, после чего заполнил front matter и основной текст новости.</p>
+<p>Для первой записи создал страницу командой <code>hugo new content blog/week-summary/index.md</code>, после чего заполнил front matter и основной текст новости. Пример оформленной новости показан на <a href="#/fig-week-news" class="quarto-xref">Рисунок&nbsp;6</a>.</p>
 
-<img data-src="image/8.png" style="width:82.0%" class="r-stretch"></section>
+<img data-src="image/8.png" style="width:50.0%" class="r-stretch quarto-figure-center" id="fig-week-news"><p class="caption">
+Рис.&nbsp;6: Файл <code>content/blog/week-summary/index.md</code> после заполнения
+</p></section>
 
 <section id="создание-новости-о-git" class="title-slide slide level1 center">
 <h1>Создание новости о Git</h1>
-<p>Аналогично создал вторую новость <code>blog/git/index.md</code> и добавил в неё краткий материал о системе управления версиями Git.</p>
+<p>Аналогично создал вторую новость <code>blog/git/index.md</code> и добавил в неё краткий материал о системе управления версиями Git. Содержимое файла показано на <a href="#/fig-git-news" class="quarto-xref">Рисунок&nbsp;7</a>.</p>
 
-<img data-src="image/11.png" style="width:82.0%" class="r-stretch"></section>
+<img data-src="image/11.png" style="width:60.0%" class="r-stretch quarto-figure-center" id="fig-git-news"><p class="caption">
+Рис.&nbsp;7: Файл <code>content/blog/git/index.md</code> с новостью о Git
+</p></section>
 
 <section id="отображение-новостей-на-главной-странице" class="title-slide slide level1 center">
 <h1>Отображение новостей на главной странице</h1>
-<p>После обновления сайта проверил, что в блоке <code>Recent News</code> отображаются две собственные записи: новость по итогам прошедшей недели и новость на тему Git.</p>
+<p>После обновления сайта проверил, что в блоке <code>Recent News</code> отображаются две собственные записи: новость по итогам прошедшей недели и новость на тему Git. Это показано на <a href="#/fig-news-main" class="quarto-xref">Рисунок&nbsp;8</a>.</p>
 
-<img data-src="image/12.png" style="width:78.0%" class="r-stretch"></section>
+<img data-src="image/12.png" style="width:30.0%" class="r-stretch quarto-figure-center" id="fig-news-main"><p class="caption">
+Рис.&nbsp;8: Блок <code>Recent News</code> с двумя новостными записями
+</p></section>
 
 <section id="итоговый-результат" class="title-slide slide level1 center">
 <h1>Итоговый результат</h1>
-<p>На главной странице сайта теперь отображаются:</p>
-<ul>
-<li>фотография владельца;</li>
-<li>краткое описание;</li>
-<li>информация об образовании;</li>
-<li>список интересов;</li>
-<li>контактные ссылки;</li>
-<li>две новостные записи.</li>
-</ul>
-</section>
+<p>В результате выполнения второго этапа на главной странице сайта теперь отображаются фотография владельца, краткое описание, образование, интересы, контактные ссылки и две новостные записи. Итоговый вид сайта показан на рис. <a href="#/fig-final-view" class="quarto-xref">Рисунок&nbsp;9</a>.</p>
+
+<img data-src="image/13.png" style="width:50.0%" class="r-stretch quarto-figure-center" id="fig-final-view"><p class="caption">
+Рис.&nbsp;9: Итоговый вид главной страницы персонального сайта
+</p></section>
 
 <section id="выводы" class="title-slide slide level1 center">
 <h1>Выводы</h1>
