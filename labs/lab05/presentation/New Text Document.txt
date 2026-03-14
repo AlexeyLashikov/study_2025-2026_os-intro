@@ -215,7 +215,7 @@ user@example.com:22.pgp
 :::::::::::::: {.columns align=center}
 ::: {.column width="50%"}
 
-![Установка дополнительного ПО](image/9.png){#fig-009 width=70%}
+![Установка дополнительного ПО](image/9.png){#fig-009 width=100%}
 
 :::
 ::: {.column width="50%"}
@@ -258,7 +258,7 @@ user@example.com:22.pgp
 
 В завершение настроил параметры `autoCommit` и `autoPush` в файле `~/.config/chezmoi/chezmoi.toml`. Благодаря этому изменения в исходном каталоге могут автоматически фиксироваться и отправляться в удалённый репозиторий (@fig-015).
 
-![Настройка autoCommit и autoPush](image/15.png){#fig-015 width=50%}
+![Настройка autoCommit и autoPush](image/15.png){#fig-015 width=78%}
 
 # Выводы
 
