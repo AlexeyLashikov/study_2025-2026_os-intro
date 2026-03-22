@@ -11,7 +11,7 @@
 
   <meta name="author" content="Лащиков Алексей Антонович">
   <meta name="dcterms.date" content="2026-03-18">
-  <title>Лабораторная работа №7</title>
+  <title>Обзор методов защиты файлов в операционных системах</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -122,14 +122,26 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+    .reveal {
+      font-size: 30px;
+    }
+
+    .reveal h1 {
+      font-size: 1.6em;
+    }
+
+    .reveal h2 {
+      font-size: 1.3em;
+    }
+  </style>
 </head>
 <body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Лабораторная работа №7</h1>
-  <p class="subtitle">Анализ файловой системы Linux. Команды для работы с файлами и каталогами</p>
+  <h1 class="title">Обзор методов защиты файлов в операционных системах</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -160,198 +172,139 @@
 </div></div>
 </section>
 
-<section id="цель-и-задачи" class="title-slide slide level1 center">
-<h1>Цель и задачи</h1>
-<p><strong>Цель:</strong> изучить структуру файловой системы Linux и получить навыки работы с файлами, каталогами и правами доступа.</p>
-<p><strong>Задачи:</strong></p>
+<section id="вводная-часть-и-актуальность-темы" class="title-slide slide level1 center">
+<h1>Вводная часть и актуальность темы</h1>
+<p>Защита файлов — один из базовых элементов информационной безопасности, поскольку именно файл является основной единицей хранения:</p>
 <ul>
-<li>выполнить примеры из методички;</li>
-<li>отработать команды <code>cp</code>, <code>mv</code>, <code>mkdir</code>, <code>ls</code>, <code>cat</code>;</li>
-<li>изучить изменение прав доступа через <code>chmod</code>;</li>
-<li>проверить влияние прав на работу с файлами и каталогами;</li>
-<li>рассмотреть команды <code>mount</code>, <code>fsck</code>, <code>mkfs</code>, <code>kill</code>.</li>
+<li>пользовательских документов;</li>
+<li>системных настроек;</li>
+<li>журналов и служебных данных;</li>
+<li>исполняемых файлов и конфигураций.</li>
+</ul>
+<p><strong>Актуальность темы</strong> определяется тем, что нарушение конфиденциальности, целостности или доступности файлов приводит к утечке данных, сбоям программ и компрометации всей системы.</p>
+</section>
+
+<section id="многоуровневая-защита-файлов" class="title-slide slide level1 center">
+<h1>Многоуровневая защита файлов</h1>
+<p><strong>Основные уровни защиты:</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><strong>Аутентификация</strong> — подтверждение личности пользователя или процесса.</li>
+<li><strong>Проверка прав доступа</strong> — применение DAC, ACL и базовых разрешений.</li>
+<li><strong>Обязательные политики</strong> — SELinux, AppArmor, sandbox и другие ограничения.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="4" type="1">
+<li><strong>Шифрование данных</strong> — защита содержимого файла без ключа.</li>
+<li><strong>Контроль целостности</strong> — выявление подмены и несанкционированных изменений.</li>
+<li><strong>Аудит и журналирование</strong> — фиксация действий и событий доступа.</li>
+</ol>
+</div></div>
+<p><strong>Ключевая идея:</strong> если один уровень не сработал, следующий снижает риск инцидента.</p>
+</section>
+
+<section id="контроль-доступа-к-файлам-в-linux" class="title-slide slide level1 center">
+<h1>Контроль доступа к файлам в Linux</h1>
+<p><strong>Базовая модель Linux</strong> строится на разграничении прав для трёх категорий:</p>
+<ul>
+<li><strong>владелец файла</strong>;</li>
+<li><strong>группа</strong>;</li>
+<li><strong>остальные пользователи</strong>.</li>
+</ul>
+<p>Для каждой категории задаются права:</p>
+<ul>
+<li><strong>r</strong> — чтение;</li>
+<li><strong>w</strong> — запись;</li>
+<li><strong>x</strong> — выполнение.</li>
 </ul>
 </section>
 
-<section id="краткая-теория" class="title-slide slide level1 center">
-<h1>Краткая теория</h1>
-<p>Файловая система Linux хранит данные в виде файлов и каталогов, объединённых в дерево с корнем <code>/</code>.</p>
-<p>Для работы с файлами и каталогами используются команды:</p>
+<section id="контроль-доступа-к-файлам-в-windows" class="title-slide slide level1 center">
+<h1>Контроль доступа к файлам в Windows</h1>
+<p><strong>В Windows</strong> контроль доступа к файлам обычно реализуется через файловую систему <strong>NTFS</strong> и списки контроля доступа <strong>ACL</strong>.</p>
+<p>Основу составляют:</p>
 <ul>
-<li><code>touch</code>, <code>cat</code>, <code>less</code>;</li>
-<li><code>cp</code>, <code>mv</code>, <code>mkdir</code>, <code>ls</code>;</li>
-<li><code>chmod</code> для изменения прав доступа.</li>
+<li><strong>DACL</strong> — определяет, кому и что разрешено;</li>
+<li><strong>SACL</strong> — задаёт параметры аудита и журналирования.</li>
 </ul>
-<p>Права <code>r</code>, <code>w</code>, <code>x</code> задаются для владельца, группы и остальных пользователей.</p>
-</section>
-
-<section id="права-доступа" class="title-slide slide level1 center">
-<h1>Права доступа</h1>
-<p>Основные права в Linux:</p>
+<p><strong>Что можно настраивать:</strong></p>
 <ul>
-<li><code>r</code> — чтение;</li>
-<li><code>w</code> — запись;</li>
-<li><code>x</code> — выполнение.</li>
-</ul>
-<p>Для каталогов право <code>x</code> означает возможность входа в каталог, а право <code>r</code> — просмотр имён объектов внутри него.</p>
-<p>Права можно задавать:</p>
-<ul>
-<li>символьной формой, например <code>chmod u+r file</code>;</li>
-<li>цифровой формой, например <code>chmod 744 dir</code>.</li>
+<li>чтение файла;</li>
+<li>запись и изменение;</li>
+<li>выполнение;</li>
+<li>удаление;</li>
+<li>наследование прав для папок и вложенных объектов.</li>
 </ul>
 </section>
 
-<section id="команды-анализа-файловой-системы" class="title-slide slide level1 center">
-<h1>Команды анализа файловой системы</h1>
-<p>Для анализа файловой системы использовались:</p>
-<ul>
-<li><code>mount</code> — показывает подключённые файловые системы;</li>
-<li><code>df -T</code> — показывает типы файловых систем и использование места;</li>
-<li><code>lsblk -f</code> — показывает разделы, типы ФС и точки монтирования.</li>
-</ul>
-<p>Также была изучена справка <code>man</code> для команд <code>mount</code>, <code>fsck</code>, <code>mkfs</code>, <code>kill</code>.</p>
+<section id="обязательные-ограничения-песочницы-и-изоляция" class="title-slide slide level1 center">
+<h1>Обязательные ограничения, песочницы и изоляция</h1>
+<div class="columns" data-align="center">
+<div class="column" style="width:32%;">
+<p><strong>Почему одних прав доступа недостаточно?</strong></p>
+<p>Если вредоносный код запускается от имени пользователя, уже имеющего право на файл, обычная DAC-модель не всегда предотвращает злоупотребление.</p>
+</div><div class="column" style="width:68%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="image/mobile_sandbox.png" style="width:60.0%"></p>
+<figcaption>Изоляция приложений и файлов в мобильной песочнице</figcaption>
+</figure>
+</div>
+</div></div>
+<p><strong>Вывод:</strong> обязательные политики ограничивают даже легально запущенный процесс и уменьшают последствия компрометации приложения.</p>
 </section>
 
-<section id="выполнение-примеров-из-методички" class="title-slide slide level1 center">
-<h1>Выполнение примеров из методички</h1>
-<p>Сначала были выполнены примеры из первой части лабораторной работы.</p>
-
-<img data-src="image/1.png" style="width:72.0%" class="r-stretch quarto-figure-center" id="fig-001"><p class="caption">
-Рисунок&nbsp;1: Выполнение примеров из первой части лабораторной работы
-</p></section>
-
-<section id="работа-с-файлами-и-каталогами" class="title-slide slide level1 center">
-<h1>Работа с файлами и каталогами</h1>
-<p>На основном этапе лабораторной работы был скопирован файл <code>/usr/include/sys/io.h</code> в домашний каталог под именем <code>equipment</code>.</p>
-
-<img data-src="image/4.png" style="width:60.0%" class="r-stretch quarto-figure-center" id="fig-002"><p class="caption">
-Рисунок&nbsp;2: Копирование файла и создание каталога <code>ski.plases</code>
-</p></section>
-
-<section id="формирование-структуры-каталогов" class="title-slide slide level1 center">
-<h1>Формирование структуры каталогов</h1>
-<p>Далее был создан файл <code>abc1</code>, скопирован в каталог <code>~/ski.plases</code> под именем <code>equiplist2</code>, а затем оба файла были перемещены в каталог <code>~/ski.plases/equipment</code>.</p>
-<p>После этого каталог <code>newdir</code> был перемещён в <code>~/ski.plases</code> и переименован в <code>plans</code>.</p>
-
-<img data-src="image/5.png" style="width:45.0%" class="r-stretch quarto-figure-center" id="fig-003"><p class="caption">
-Рисунок&nbsp;3: Создание структуры каталогов и перемещение файлов
-</p></section>
-
-<section id="настройка-прав-доступа" class="title-slide slide level1 center">
-<h1>Настройка прав доступа</h1>
-<p>Для объектов были заданы требуемые права доступа с помощью команды <code>chmod</code>:</p>
+<section id="шифрование-целостность-и-подлинность-файлов" class="title-slide slide level1 center">
+<h1>Шифрование, целостность и подлинность файлов</h1>
+<p><strong>Шифрование</strong> защищает данные при краже или утрате носителя:</p>
 <ul>
-<li><code>australia</code> — <code>744</code></li>
-<li><code>play</code> — <code>711</code></li>
-<li><code>my_os</code> — <code>544</code></li>
-<li><code>feathers</code> — <code>664</code></li>
+<li><strong>Windows:</strong> BitLocker, EFS;</li>
+<li><strong>Linux:</strong> LUKS, fscrypt;</li>
+<li><strong>macOS:</strong> FileVault;</li>
+<li><strong>Android / iOS:</strong> FBE, Data Protection.</li>
 </ul>
-
-<img data-src="image/6.png" style="width:45.0%" class="r-stretch quarto-figure-center" id="fig-004"><p class="caption">
-Рисунок&nbsp;4: Назначение прав доступа объектам
-</p></section>
-
-<section id="просмотр-системного-файла" class="title-slide slide level1 center">
-<h1>Просмотр системного файла</h1>
-<p>На следующем этапе было просмотрено содержимое файла <code>/etc/passwd</code>.</p>
-<p>Этот файл содержит сведения о пользователях системы: имя пользователя, идентификаторы, домашний каталог и командную оболочку.</p>
-
-<img data-src="image/7.png" style="width:40.0%" class="r-stretch quarto-figure-center" id="fig-005"><p class="caption">
-Рисунок&nbsp;5: Просмотр файла <code>/etc/passwd</code>
-</p></section>
-
-<section id="копирование-и-перемещение-объектов" class="title-slide slide level1 center">
-<h1>Копирование и перемещение объектов</h1>
-<p>После этого файл <code>~/feathers</code> был скопирован в <code>~/file.old</code>, затем перемещён в каталог <code>~/play</code>.</p>
-<p>Далее каталог <code>~/play</code> был рекурсивно скопирован в <code>~/fun</code>, а затем перемещён в <code>~/play</code> под именем <code>games</code>.</p>
-
-<img data-src="image/8.png" style="width:72.0%" class="r-stretch quarto-figure-center" id="fig-006"><p class="caption">
-Рисунок&nbsp;6: Копирование и перемещение файлов и каталогов
-</p></section>
-
-<section id="проверка-влияния-прав-доступа" class="title-slide slide level1 center">
-<h1>Проверка влияния прав доступа</h1>
-<p>У владельца файла <code>~/feathers</code> было снято право на чтение.</p>
-<p>После этого:</p>
+<p><strong>Контроль целостности и подлинности</strong> обеспечивает:</p>
 <ul>
-<li>команда <code>cat ~/feathers</code> завершилась ошибкой;</li>
-<li>команда <code>cp ~/feathers ~/feathers_copy</code> тоже завершилась ошибкой.</li>
+<li>обнаружение несанкционированных изменений;</li>
+<li>проверку происхождения исполняемых файлов;</li>
+<li>доверенную загрузку и защиту системных компонентов.</li>
 </ul>
-<p>Это показало, что без права <code>r</code> файл нельзя ни просмотреть, ни скопировать.</p>
-
-<img data-src="image/10.png" style="width:72.0%" class="r-stretch quarto-figure-center" id="fig-007"><p class="caption">
-Рисунок&nbsp;7: Влияние снятия права чтения у файла
-</p></section>
-
-<section id="возврат-прав-доступа" class="title-slide slide level1 center">
-<h1>Возврат прав доступа</h1>
-<p>Затем владельцу файла <code>~/feathers</code> было возвращено право чтения.</p>
-<p>Также у каталога <code>~/play</code> временно было снято право выполнения <code>x</code>, из-за чего переход в каталог стал невозможен.</p>
-<p>После возврата права <code>x</code> доступ в каталог восстановился.</p>
-
-<img data-src="image/12.png" style="width:72.0%" class="r-stretch quarto-figure-center" id="fig-008"><p class="caption">
-Рисунок&nbsp;8: Изменение прав у файла и каталога
-</p></section>
-
-<section id="файловые-системы-на-компьютере" class="title-slide slide level1 center">
-<h1>Файловые системы на компьютере</h1>
-<p>По результатам выполнения команд <code>mount</code>, <code>df -T</code> и <code>lsblk -f</code> было установлено, что в системе используются:</p>
-<ul>
-<li><code>btrfs</code> — основная файловая система;</li>
-<li><code>ext4</code> — для раздела <code>/boot</code>;</li>
-<li><code>vfat</code> — для раздела <code>/boot/efi</code>;</li>
-<li><code>swap</code> — область подкачки.</li>
-</ul>
+<p><strong>Практический смысл:</strong> даже если файл перехвачен или скопирован, без ключа его нельзя прочитать, а подмену можно выявить по хешу или подписи.</p>
 </section>
 
-<section id="результаты-команды-mount" class="title-slide slide level1 center">
-<h1>Результаты команды mount</h1>
-<p>Команда <code>mount</code> показала список всех смонтированных файловых систем и параметры их подключения.</p>
-<p>По выводу команды видно, что:</p>
-<ul>
-<li><code>/dev/sda3</code> смонтирован в <code>/</code> и <code>/home</code>;</li>
-<li>тип файловой системы для этих точек — <code>btrfs</code>.</li>
-</ul>
+<section id="анализ-результатов-и-сравнение-ос" class="title-slide slide level1 center">
+<h1>Анализ результатов и сравнение ОС</h1>
 
-<img data-src="image/14.png" style="width:40.0%" class="r-stretch quarto-figure-center" id="fig-009"><p class="caption">
-Рисунок&nbsp;9: Вывод команды <code>mount</code>
-</p></section>
-
-<section id="результаты-команд-df--t-и-lsblk--f" class="title-slide slide level1 center">
-<h1>Результаты команд df -T и lsblk -f</h1>
-<p>Команды <code>df -T</code> и <code>lsblk -f</code> подтвердили структуру разделов:</p>
-<ul>
-<li><code>/dev/sda3</code> — <code>btrfs</code></li>
-<li><code>/dev/sda2</code> — <code>ext4</code></li>
-<li><code>/dev/sda1</code> — <code>vfat</code></li>
-<li><code>zram0</code> — <code>swap</code></li>
-</ul>
-
-<img data-src="image/15.png" style="width:45.0%" class="r-stretch quarto-figure-center" id="fig-010"><p class="caption">
-Рисунок&nbsp;10: Вывод команд <code>df -T</code> и <code>lsblk -f</code>
-</p></section>
-
-<section id="изученные-команды" class="title-slide slide level1 center">
-<h1>Изученные команды</h1>
-<p>В завершение были изучены команды:</p>
-<ul>
-<li><code>mount</code> — подключение файловых систем;</li>
-<li><code>fsck</code> — проверка и исправление ошибок;</li>
-<li><code>mkfs</code> — создание файловой системы;</li>
-<li><code>kill</code> — отправка сигналов процессам.</li>
-</ul>
+<img data-src="image/2.png" style="width:64.0%" class="r-stretch quarto-figure-center"><p class="caption">Сравнение механизмов защиты файлов в разных семействах операционных систем</p><p><strong>Результат анализа:</strong> различия между ОС определяются не наличием одного «лучшего» механизма, а композицией защитных уровней и качеством их настройки.</p>
 </section>
 
-<section id="выводы" class="title-slide slide level1 center">
-<h1>Выводы</h1>
-<p>В ходе лабораторной работы были изучены:</p>
+<section id="практическая-значимость-достигнутых-результатов" class="title-slide slide level1 center">
+<h1>Практическая значимость достигнутых результатов</h1>
+<p>По результатам исследования можно сформулировать прикладные рекомендации:</p>
 <ul>
-<li>операции с файлами и каталогами;</li>
-<li>изменение прав доступа через <code>chmod</code>;</li>
-<li>влияние прав на чтение файлов и доступ к каталогам;</li>
-<li>базовые команды анализа файловой системы Linux.</li>
+<li>не ограничиваться только правами доступа;</li>
+<li>использовать ACL там, где требуется гибкое разграничение;</li>
+<li>включать SELinux / AppArmor / sandbox-механизмы;</li>
+<li>применять шифрование для ноутбуков, мобильных устройств и серверов;</li>
+<li>настраивать аудит доступа к критичным файлам;</li>
+<li>учитывать особенности безопасного удаления данных на SSD и в виртуальных средах.</li>
 </ul>
-<p>Также был выполнен анализ файловых систем компьютера, на котором выполнялась работа. Цель лабораторной работы была достигнута.</p>
+<p><strong>Практическая ценность работы</strong> состоит в том, что эти выводы применимы как в учебной среде, так и в корпоративной инфраструктуре.</p>
+</section>
+
+<section id="общее-заключение-и-выводы" class="title-slide slide level1 center">
+<h1>Общее заключение и выводы</h1>
+<p><strong>Основные выводы:</strong></p>
+<ul>
+<li>универсального метода защиты файлов не существует;</li>
+<li>базовый уровень составляют права доступа и ACL;</li>
+<li>обязательные политики и песочницы уменьшают ущерб от компрометации процессов;</li>
+<li>шифрование защищает данные при физической утрате носителя;</li>
+<li>контроль целостности и цифровые подписи помогают выявлять подмену;</li>
+<li>аудит и безопасное удаление завершают жизненный цикл защиты данных.</li>
+</ul>
+<p><strong>Итоговый вывод:</strong> надёжная защита файлов обеспечивается только при сочетании нескольких взаимодополняющих механизмов и их корректной настройке.</p>
 
 </section>
     </div>
