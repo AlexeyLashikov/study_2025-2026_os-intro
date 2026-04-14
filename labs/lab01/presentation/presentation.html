@@ -1,0 +1,159 @@
+<h1 id="информация">Информация</h1>
+<h2 id="докладчик">Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Лащиков Алексей Антонович</li>
+<li>Студент <группа></li>
+<li>Российский университет дружбы народов</li>
+<li><a href="mailto:1032253527@rudn.ru">1032253527@rudn.ru</a></li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div>
+<h2 id="цель-и-задачи">Цель и задачи</h2>
+<p><strong>Цель:</strong> установить Fedora Sway в VirtualBox и
+выполнить базовую настройку системы.</p>
+<p><strong>Задачи:</strong></p>
+<ul>
+<li>создать виртуальную машину и установить ОС;</li>
+<li>выполнить первичную настройку (обновления, инструменты, SELinux,
+раскладка, hostname);</li>
+<li>установить ПО для подготовки отчётов (<code>pandoc</code>, TeX
+Live);</li>
+<li>получить системную информацию через <code>dmesg</code>.</li>
+</ul>
+<h1 id="ход-работы">Ход работы</h1>
+<h2 id="создание-виртуальной-машины">1) Создание виртуальной машины</h2>
+<p>Создал новую виртуальную машину в графическом интерфейсе и задал имя
+ВМ по логину.</p>
+<figure id="fig-001">
+<img src="image/1.png" style="width:30.0%"
+alt="Создание новой виртуальной машины" />
+<figcaption aria-hidden="true">Создание новой виртуальной
+машины</figcaption>
+</figure>
+<h2 id="настройка-ресурсов">2) Настройка ресурсов</h2>
+<p>Указал объём оперативной памяти и размер диска 80 ГБ.</p>
+<h2 id="подключение-установочного-iso">3) Подключение установочного
+ISO</h2>
+<p>Подключил ISO-образ Fedora Sway.</p>
+<figure id="fig-006">
+<img src="image/6.png" style="width:40.0%"
+alt="Подключение ISO Fedora Sway" />
+<figcaption aria-hidden="true">Подключение ISO Fedora Sway</figcaption>
+</figure>
+<h2 id="параметры-загрузки-и-виртуализации">4) Параметры загрузки и
+виртуализации</h2>
+<p>Включил ускорение 3D/контроллер VMSVGA и поддержку UEFI.</p>
+<h2 id="установка-fedora-sway">5) Установка Fedora Sway</h2>
+<p>Установил систему на диск и завершил установку.</p>
+<figure id="fig-009">
+<img src="image/9.png" style="width:78.0%"
+alt="Завершение установки Fedora Sway" />
+<figcaption aria-hidden="true">Завершение установки Fedora
+Sway</figcaption>
+</figure>
+<h1 id="первичная-настройка-fedora">Первичная настройка Fedora</h1>
+<h2 id="обновление-и-инструменты">Обновление и инструменты</h2>
+<p>Установил <code>development-tools</code> и обновил пакеты.</p>
+<figure id="fig-010">
+<img src="image/10.png" style="width:70.0%"
+alt="Установка development-tools" />
+<figcaption aria-hidden="true">Установка development-tools</figcaption>
+</figure>
+<figure id="fig-011">
+<img src="image/11.png" style="width:60.0%" alt="Обновление пакетов" />
+<figcaption aria-hidden="true">Обновление пакетов</figcaption>
+</figure>
+<h2 id="selinux-и-hostname">SELinux и hostname</h2>
+<p>Перевёл SELinux в режим <code>permissive</code> и установил имя хоста
+по требованиям именования.</p>
+<figure id="fig-015">
+<img src="image/15.png" style="width:30.0%" alt="SELinux permissive" />
+<figcaption aria-hidden="true">SELinux permissive</figcaption>
+</figure>
+<figure id="fig-020">
+<img src="image/20.png" style="width:30.0%" alt="Установка hostname" />
+<figcaption aria-hidden="true">Установка hostname</figcaption>
+</figure>
+<h2 id="раскладка-клавиатуры-sway-system">Раскладка клавиатуры (Sway +
+system)</h2>
+<p>Создал пользовательский конфиг Sway и отредактировал системный конфиг
+клавиатуры.</p>
+<figure id="fig-016">
+<img src="image/16.png" style="width:60.0%"
+alt="Пользовательский конфиг Sway" />
+<figcaption aria-hidden="true">Пользовательский конфиг Sway</figcaption>
+</figure>
+<figure id="fig-019">
+<img src="image/19.png" style="width:60.0%"
+alt="Системный конфиг клавиатуры" />
+<figcaption aria-hidden="true">Системный конфиг клавиатуры</figcaption>
+</figure>
+<h1 id="по-для-отчётов-и-обмен-файлами">ПО для отчётов и обмен
+файлами</h1>
+<h2 id="pandoc-и-tex-live">Pandoc и TeX Live</h2>
+<p>Установил <code>pandoc</code> и TeX Live для сборки PDF.</p>
+<figure id="fig-021">
+<img src="image/21.png" style="width:40.0%" alt="Установка pandoc" />
+<figcaption aria-hidden="true">Установка pandoc</figcaption>
+</figure>
+<figure id="fig-023">
+<img src="image/23.png" style="width:40.0%" alt="Установка TeX Live" />
+<figcaption aria-hidden="true">Установка TeX Live</figcaption>
+</figure>
+<h2 id="общая-папка-virtualbox">Общая папка VirtualBox</h2>
+<p>Настроил shared folder через группу <code>vboxsf</code>.</p>
+<figure id="fig-031">
+<img src="image/31.png" style="width:78.0%"
+alt="Подключение общей папки" />
+<figcaption aria-hidden="true">Подключение общей папки</figcaption>
+</figure>
+<h1 id="домашнее-задание-dmesg">Домашнее задание (dmesg)</h1>
+<h2 id="ключевая-системная-информация-14">Ключевая системная информация
+(1/4)</h2>
+<p>Определил версию ядра Linux.</p>
+<figure id="fig-024">
+<img src="image/24.png" style="width:92.0%" alt="Версия ядра Linux" />
+<figcaption aria-hidden="true">Версия ядра Linux</figcaption>
+</figure>
+<h2 id="ключевая-системная-информация-24">Ключевая системная информация
+(2/4)</h2>
+<p>Определил частоту и модель процессора.</p>
+<figure id="fig-025">
+<img src="image/25.png" style="width:92.0%" alt="Частота процессора" />
+<figcaption aria-hidden="true">Частота процессора</figcaption>
+</figure>
+<figure id="fig-026">
+<img src="image/26.png" style="width:92.0%" alt="Модель процессора" />
+<figcaption aria-hidden="true">Модель процессора</figcaption>
+</figure>
+<h2 id="ключевая-системная-информация-34">Ключевая системная информация
+(3/4)</h2>
+<p>Определил объём доступной памяти и тип гипервизора.</p>
+<figure id="fig-027">
+<img src="image/27.png" style="width:92.0%"
+alt="Доступная оперативная память" />
+<figcaption aria-hidden="true">Доступная оперативная память</figcaption>
+</figure>
+<figure id="fig-028">
+<img src="image/28.png" style="width:92.0%" alt="Тип гипервизора" />
+<figcaption aria-hidden="true">Тип гипервизора</figcaption>
+</figure>
+<h2 id="ключевая-системная-информация-44">Ключевая системная информация
+(4/4)</h2>
+<p>Определил тип файловой системы корневого раздела и последовательность
+монтирования ФС.</p>
+<h1 id="итоги">Итоги</h1>
+<h2 id="выводы">Выводы</h2>
+<ul>
+<li>Создана ВМ в VirtualBox и установлена Fedora Sway.</li>
+<li>Выполнена первичная настройка: обновления, инструменты, SELinux,
+раскладка, hostname.</li>
+<li>Установлены <code>pandoc</code> и TeX Live; настроена общая папка
+для обмена файлами.</li>
+<li>По <code>dmesg</code> получены параметры загрузки и сведения об
+окружении (CPU, память, гипервизор, ФС).</li>
+</ul>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Лащиков Алексей Антонович" />
+  <title>Отчёт по лабораторной работе №1</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Отчёт по лабораторной работе №1</h1>
+<p class="subtitle">Установка ОС Linux</p>
+<p class="author">Лащиков Алексей Антонович</p>
+</header>
+<nav id="TOC" role="doc-toc">
+
+</nav>
+<h1 id="цель-работы">Цель работы</h1>
+<p>Цель данной лабораторной работы — приобретение практических навыков
+установки операционной системы на виртуальную машину, настройки
+минимально необходимых для дальнейшей работы сервисов.</p>
+<h1 id="задание">Задание</h1>
+<p>Освоить базовые команды терминала Linux и получить системную
+информацию.</p>
+<h1 id="выполнение-лабораторной-работы">Выполнение лабораторной
+работы</h1>
+<p>Создал новую виртуальную машину в графическом интерфейсе и указал имя
+виртуальной машины, ссответствующее моему логину в дисплейном классе
+(см. <a href="#fig-001">рис.1</a>).</p>
+<figure id="fig-001">
+<img src="image/1.png" style="width:70.0%"
+alt="Создание новой виртуальной машины в графическом интерфейсе" />
+<figcaption aria-hidden="true">Создание новой виртуальной машины в
+графическом интерфейсе</figcaption>
+</figure>
+<p>Указал размер основной памяти виртуальной машины — 4096 ГБ (см. <a
+href="#fig-002">рис.2</a>).</p>
+<figure id="fig-002">
+<img src="image/2.png" style="width:70.0%"
+alt="Указанный размер основной памяти" />
+<figcaption aria-hidden="true">Указанный размер основной
+памяти</figcaption>
+</figure>
+<p>Задал конфигурацию жёского диска — загрузочный, VDI (см. <a
+href="#fig-003">рис.3</a>).</p>
+<figure id="fig-003">
+<img src="image/3.png" style="width:70.0%"
+alt="Указанный размер основной памяти" />
+<figcaption aria-hidden="true">Указанный размер основной
+памяти</figcaption>
+</figure>
+<p>Задал размер диска — 80 ГБ (см. <a href="#fig-004">рис.4</a>).</p>
+<figure id="fig-004">
+<img src="image/4.png" style="width:70.0%"
+alt="Установка размера диска" />
+<figcaption aria-hidden="true">Установка размера диска</figcaption>
+</figure>
+<p>Включил общий буфер обмена и перетаскивание объектов между хостом и
+гостевой ОС (см. <a href="#fig-005">рис.5</a>).</p>
+<figure id="fig-005">
+<img src="image/5.png" style="width:70.0%"
+alt="Включённый общий буфер обмена и перетаскивание между хостом и гостевой ОС" />
+<figcaption aria-hidden="true">Включённый общий буфер обмена и
+перетаскивание между хостом и гостевой ОС</figcaption>
+</figure>
+<p>Добавил новый привоод оптических дисков и выбрал образ (см. <a
+href="#fig-006">рис.6</a>).</p>
+<figure id="fig-006">
+<img src="image/6.png" style="width:70.0%" alt="Выбранный образ" />
+<figcaption aria-hidden="true">Выбранный образ</figcaption>
+</figure>
+<p>В качестве графического контроллера поставил VMSVGA и включил
+ускорение 3D (см. <a href="#fig-007">рис.7</a>).</p>
+<figure id="fig-007">
+<img src="image/7.png" style="width:70.0%"
+alt="Установленный контроллер и включенное ускорение 3D" />
+<figcaption aria-hidden="true">Установленный контроллер и включенное
+ускорение 3D</figcaption>
+</figure>
+<p>Включил поддержку UEFI (см. <a href="#fig-008">рис.8</a>).</p>
+<figure id="fig-008">
+<img src="image/8.png" style="width:70.0%"
+alt="Включенная поддержка UEFI" />
+<figcaption aria-hidden="true">Включенная поддержка UEFI</figcaption>
+</figure>
+<p>Установил систему на диск (см. <a href="#fig-009">рис.9</a>).</p>
+<figure id="fig-009">
+<img src="image/9.png" style="width:70.0%"
+alt="Экран завершения установки системы" />
+<figcaption aria-hidden="true">Экран завершения установки
+системы</figcaption>
+</figure>
+<p>Переключился на роль супер-пользователя и установил средства
+разработки (см. <a href="#fig-010">рис.10</a>).</p>
+<figure id="fig-010">
+<img src="image/10.png" style="width:70.0%"
+alt="Переключение на роль супр-пользователя и установка средств разработки" />
+<figcaption aria-hidden="true">Переключение на роль супр-пользователя и
+установка средств разработки</figcaption>
+</figure>
+<p>Обновил все пакеты (см. <a href="#fig-011">рис.11</a>).</p>
+<figure id="fig-011">
+<img src="image/11.png" style="width:70.0%"
+alt="Обновление всех пакетов" />
+<figcaption aria-hidden="true">Обновление всех пакетов</figcaption>
+</figure>
+<p>Установил программу для удобства работы в консоли (см. <a
+href="#fig-012">рис.12</a>).</p>
+<figure id="fig-012">
+<img src="image/12.png" style="width:70.0%"
+alt="Установка программы для удобства работы в консоли" />
+<figcaption aria-hidden="true">Установка программы для удобства работы в
+консоли</figcaption>
+</figure>
+<p>Установил другой вариант консоли (см. <a
+href="#fig-0013">рис.13</a>).</p>
+<figure id="fig-013">
+<img src="image/13.png" style="width:70.0%"
+alt="Установка другого варианта консоли" />
+<figcaption aria-hidden="true">Установка другого варианта
+консоли</figcaption>
+</figure>
+<p>Установил автоматическое обновление и запустил таймер (см. <a
+href="#fig-0014">рис.14</a>).</p>
+<figure id="fig-014">
+<img src="image/14.png" style="width:70.0%"
+alt="Установка автоматического обновления и запуск таймера" />
+<figcaption aria-hidden="true">Установка автоматического обновления и
+запуск таймера</figcaption>
+</figure>
+<p>Отключил систему безопасности SELinux (см. <a
+href="#fig-0015">рис.15</a>).</p>
+<figure id="fig-015">
+<img src="image/15.png" style="width:70.0%"
+alt="Установка автоматического обновления и запуск таймера" />
+<figcaption aria-hidden="true">Установка автоматического обновления и
+запуск таймера</figcaption>
+</figure>
+<p>Запустил терминальный мультиплексор tmux и создал конфигурационный
+файл <code>~/.config/sway/config.d/95-system-keyboard-config.conf</code>
+(см. <a href="#fig-0016">рис.16</a>).</p>
+<figure id="fig-016">
+<img src="image/16.png" style="width:70.0%"
+alt="Запуск терминального мультиплексора tmux и создание конфигурационного файла" />
+<figcaption aria-hidden="true">Запуск терминального мультиплексора tmux
+и создание конфигурационного файла</figcaption>
+</figure>
+<p>Отредактировал конфигурационный файл
+<code>~/.config/sway/config.d/95-system-keyboard-config.conf</code> (см.
+<a href="#fig-0017">рис.17</a>).</p>
+<figure id="fig-017">
+<img src="image/17.png" style="width:70.0%"
+alt="Отредактированный конфигурационный файл" />
+<figcaption aria-hidden="true">Отредактированный конфигурационный
+файл</figcaption>
+</figure>
+<p>Переключился на роль супер-пользователя и открыл конфигурационный
+файл (см. <a href="#fig-0018">рис.18</a>).</p>
+<figure id="fig-018">
+<img src="image/18.png" style="width:70.0%"
+alt="Переключение на роль супер-пользователя и открытие конфигурационного файла" />
+<figcaption aria-hidden="true">Переключение на роль супер-пользователя и
+открытие конфигурационного файла</figcaption>
+</figure>
+<p>Отредактировал конфигурационный файл (см. <a
+href="#fig-0019">рис.19</a>).</p>
+<figure id="fig-019">
+<img src="image/19.png" style="width:70.0%"
+alt="Отредактированный конфигурационный файл" />
+<figcaption aria-hidden="true">Отредактированный конфигурационный
+файл</figcaption>
+</figure>
+<p>Установил имя хоста (см. <a href="#fig-020">рис.20</a>).</p>
+<figure id="fig-020">
+<img src="image/20.png" style="width:70.0%"
+alt="Установка имени хоста" />
+<figcaption aria-hidden="true">Установка имени хоста</figcaption>
+</figure>
+<p>Запустил терминательный мультиплексор tmux, переключился на роль
+супер-пользователя и установил средство <code>pandoc</code> для работты
+с языком разметки Markdown (см. <a href="#fig-021">рис.21</a>).</p>
+<figure id="fig-021">
+<img src="image/21.png" style="width:70.0%"
+alt="Запуск терминательного мультиплексора tmux, переключение на роль супер-пользователя и установка средства pandoc" />
+<figcaption aria-hidden="true">Запуск терминательного мультиплексора
+tmux, переключение на роль супер-пользователя и установка средства
+<code>pandoc</code></figcaption>
+</figure>
+<p>Продолжил установку <code>pandoc</code> (см. <a
+href="#fig-022">рис.22</a>).</p>
+<figure id="fig-022">
+<img src="image/22.png" style="width:70.0%"
+alt="Продолжение установки pandoc" />
+<figcaption aria-hidden="true">Продолжение установки
+<code>pandoc</code></figcaption>
+</figure>
+<p>Установил дистрибутив TeXlive (см. <a
+href="#fig-023">рис.23</a>).</p>
+<figure id="fig-023">
+<img src="image/23.png" style="width:70.0%"
+alt="Установка дистрибутива TeXlive" />
+<figcaption aria-hidden="true">Установка дистрибутива
+TeXlive</figcaption>
+</figure>
+<p>Внутри виртуальной машины добавил своего пользователя в группу
+vboxsf, в хостовой системе подключил разделяемую папку и перезагрузил
+виртуальную машину (см. <a href="#fig-031">рис.31</a>).</p>
+<figure id="fig-031">
+<img src="image/31.png" style="width:70.0%"
+alt="Добавление пользователя в группу vboxsf и перезагрузка виртуальной машиины" />
+<figcaption aria-hidden="true">Добавление пользователя в группу vboxsf и
+перезагрузка виртуальной машиины</figcaption>
+</figure>
+<h1 id="домашнее-задание">Домашнее задание</h1>
+<p>Получил версию ядра Linux (см. <a href="#fig-024">рис.24</a>).</p>
+<figure id="fig-024">
+<img src="image/24.png" style="width:70.0%"
+alt="Получение версии ядра Linux" />
+<figcaption aria-hidden="true">Получение версии ядра Linux</figcaption>
+</figure>
+<p>Получил частоту процессора (см. <a href="#fig-025">рис.25</a>).</p>
+<figure id="fig-025">
+<img src="image/25.png" style="width:70.0%"
+alt="Получение частоты процессора" />
+<figcaption aria-hidden="true">Получение частоты процессора</figcaption>
+</figure>
+<p>Получил модель процессора (см. <a href="#fig-026">рис.26</a>).</p>
+<figure id="fig-026">
+<img src="image/26.png" style="width:70.0%"
+alt="Получение модели процессора" />
+<figcaption aria-hidden="true">Получение модели процессора</figcaption>
+</figure>
+<p>Получил объём доступной оперативной памяти (см. <a
+href="#fig-027">рис.27</a>).</p>
+<figure id="fig-027">
+<img src="image/27.png" style="width:70.0%"
+alt="Получение объёма доступной оперативной памяти" />
+<figcaption aria-hidden="true">Получение объёма доступной оперативной
+памяти</figcaption>
+</figure>
+<p>Получил тип обнаруженного гипервизора (см. <a
+href="#fig-028">рис.28</a>).</p>
+<figure id="fig-028">
+<img src="image/28.png" style="width:70.0%"
+alt="Получение типа обнаруженного гипервизора" />
+<figcaption aria-hidden="true">Получение типа обнаруженного
+гипервизора</figcaption>
+</figure>
+<p>Получил тип файловой системы корневого раздела (см. <a
+href="#fig-029">рис.29</a>).</p>
+<figure id="fig-029">
+<img src="image/29.png" style="width:70.0%"
+alt="Получение типа файловой системы корневого раздела" />
+<figcaption aria-hidden="true">Получение типа файловой системы корневого
+раздела</figcaption>
+</figure>
+<p>Получил последовательность монтирования файловых систем (см. <a
+href="#fig-030">рис.30</a>).</p>
+<figure id="fig-030">
+<img src="image/30.png" style="width:70.0%"
+alt="Получение последовательности монтирования файловых систем" />
+<figcaption aria-hidden="true">Получение последовательности монтирования
+файловых систем</figcaption>
+</figure>
+<h1 id="контрольные-вопросы">Контрольные вопросы</h1>
+<ol type="1">
+<li>Учётная запись пользователя Linux включает:</li>
+</ol>
+<ul>
+<li>логин и UID;</li>
+<li>основную группу (GID) и дополнительные группы;</li>
+<li>домашний каталог;</li>
+<li>командную оболочку;</li>
+<li>пароль и параметры его политики;</li>
+<li>дополнительные поля (описание, комментарий, имя и т.д.)</li>
+</ul>
+<ol start="2" type="1">
+<li>Указываю команды из терминала и привожу примеры:</li>
+</ol>
+<ul>
+<li>получение справки по команде: <code>--help</code> (пример:
+<code>ls --help</code>);</li>
+<li>перемещение по файловой системе: <code>pwd</code> (пример:
+<code>pwd</code>); <code>cd</code> (пример: <code>cd /etc</code>);
+<code>cd ..</code> (пример: <code>cd ..</code>); <code>cd ~</code>
+(пример: <code>cd ~</code>);</li>
+<li>просмотр содержимого каталога: <code>ls</code> (пример:
+<code>ls</code>); <code>ls -la</code> (пример:
+<code>ls -la /var/log</code>);</li>
+<li>определение объёма каталога: <code>du -sh</code> (пример:
+<code>du -sh</code>);</li>
+<li>для создания каталогов: <code>mkdir</code> (пример:
+<code>mkdir testdir</code>);</li>
+<li>для создания файлов: <code>touch</code> (пример:
+<code>touch testfile.txt</code>)</li>
+<li>для удаления каталогов: <code>rmdir</code> (пример:
+<code>rmdir testdir</code>); <code>rm -r</code> (пример:
+<code>rm -r testdir</code>);</li>
+<li>для удаления файлов: <code>rm</code> (пример:
+<code>rm testfile.txt</code>);</li>
+<li>для задания определённых прав на файл/каталог: <code>chmod</code>
+(пример: <code>chmod 644 testfile.txt</code>); <code>chown</code>
+(пример: <code>sudo chown user:group testfile.txt</code>);</li>
+<li>для просмотра истории команд: history (пример: history);</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Файловая система</strong> — это способ организации и
+хранения данных на носителе. Примеры:</li>
+</ol>
+<ul>
+<li><strong>ext4</strong> — популярная Linux FS, стабильная,
+журналируемая;</li>
+<li><strong>xfs</strong> — производительная для больших файлов и
+нагрузок, журналируемая;</li>
+<li><strong>btrfs</strong> — поддержка снапшотов, сжатия, подтомов;</li>
+<li><strong>vfat (FAT32)</strong> — простая, совместима со многими
+ОС;</li>
+<li><strong>ntfs</strong> — стандарт Windows, в Linux поддерживается
+через драйвер.</li>
+</ul>
+<ol start="4" type="1">
+<li>Варианты просмотра подмонтированных в ОС систем:</li>
+</ol>
+<ul>
+<li><code>mount</code>;</li>
+<li><code>findmnt</code>;</li>
+<li><code>df -T</code>;</li>
+<li><code>cat /proc/mounts</code>.</li>
+</ul>
+<ol start="5" type="1">
+<li>Удаление зависшего процесса:</li>
+<li>Найти процесс:</li>
+</ol>
+<ul>
+<li><code>ps aux | grep name</code></li>
+<li><code>top/htop</code></li>
+</ul>
+<ol start="2" type="1">
+<li>Завершить процесс:</li>
+</ol>
+<ul>
+<li><code>kill PID</code></li>
+</ul>
+<h1 id="выводы">Выводы</h1>
+<p>В ходе работы были освоены базовые приёмы работы в терминале Linux и
+оформления результатов в Markdown. С помощью dmesg и фильтрации grep
+получены ключевые сведения о системе. Полученные результаты
+зафиксированы в отчёте и подтверждены скриншотами и скринкастами.</p>
+</body>
+</html>

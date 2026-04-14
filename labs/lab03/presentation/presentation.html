@@ -1,0 +1,115 @@
+<h1 id="информация">Информация</h1>
+<h2 id="докладчик">Докладчик</h2>
+<div class="columns" data-align="center">
+<div class="column" style="width:70%;">
+<ul>
+<li>Лащиков Алексей Антонович</li>
+<li>НКАбд-04-25</li>
+<li>Российский университет дружбы народов</li>
+<li><a href="mailto:1032253527@rudn.ru">1032253527@rudn.ru</a></li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div>
+<h2 id="цель-и-задачи">Цель и задачи</h2>
+<p><strong>Цель:</strong> научиться оформлять отчёты с помощью языка
+разметки Markdown.</p>
+<p><strong>Задачи:</strong> - сделать отчёт по предыдущей лабораторной
+работе в формате Markdown; - подготовить отчёт в трёх форматах:
+<code>md</code>, <code>pdf</code>, <code>docx</code>.</p>
+<h1 id="коротко-о-markdown">Коротко о Markdown</h1>
+<h2 id="что-такое-markdown">Что такое Markdown</h2>
+<ul>
+<li>лёгкий язык разметки для оформления текста;</li>
+<li>быстро пишется в любом редакторе;</li>
+<li>удобно хранить Git и конвертировать в другие форматы.</li>
+</ul>
+<h2 id="базовый-синтаксис">Базовый синтаксис</h2>
+<ul>
+<li>заголовки: <code>#</code>, <code>##</code>, <code>###</code></li>
+<li>выделение: <code>**bold**</code>, <code>*italic*</code>,
+<code>***оба***</code></li>
+<li>списки:
+<ul>
+<li><code>- пункт</code></li>
+<li><code>1. пункт</code></li>
+</ul></li>
+<li>ссылки: <code>[текст](url)</code></li>
+<li>цитаты: <code>&gt; цитата</code></li>
+<li>код: <code>`inline`</code> и блоки <code></code></li>
+</ul>
+<h2 id="формулы-и-ссылки-на-формулы">Формулы и ссылки на формулы</h2>
+<ul>
+<li>внутритекстовая формула: <code>$\sin^2 x + \cos^2 x = 1$</code></li>
+<li>выключная формула:</li>
+</ul>
+<pre><code>$$
+\sin^2 x + \cos^2 x = 1
+$$ {#eq:eq:sin2+cos2}</code></pre>
+<ul>
+<li>ссылка в тексте:
+<code>Смотри формулу ([-@eq:eq:sin2+cos2])</code></li>
+</ul>
+<h1 id="конвертация-отчёта">Конвертация отчёта</h1>
+<h2 id="pandoc-и-фильтры">Pandoc и фильтры</h2>
+<p>Для преобразования Markdown в другие форматы используется
+<strong>Pandoc</strong>.</p>
+<ul>
+<li><code>pandoc</code> - конвертер;</li>
+<li><code>pandoc-crossref</code> - перекрёстные ссылки (рисунки,
+таблицы, формулы);</li>
+<li><code>pandoc-citeproc</code> - обработка цитирований.</li>
+</ul>
+<h2 id="примеры-команд">Примеры команд</h2>
+<p>В PDF:</p>
+<pre><code>pandoc README.md -o README.pdf</code></pre>
+<p>B DOCX:</p>
+<pre><code>pandoc README.md -o README.docx</code></pre>
+<h1 id="выполнение-лабораторной-работы">Выполнение лабораторной
+работы</h1>
+<h2 id="структура-отчёта">Структура отчёта</h2>
+<p>Оформил титульные данные и основную информацию отчёта (см. <a
+href="#fig-001">рис.1</a>).</p>
+<figure id="fig-001">
+<img src="image/1.png" style="width:85.0%"
+alt="Основная информация о лабораторной работе" />
+<figcaption aria-hidden="true">Основная информация о лабораторной
+работе</figcaption>
+</figure>
+<h2 id="цель-задание-теория">Цель, задание, теория</h2>
+<p>Добавил цель, задание и теоретическое введение (см. <a
+href="#fig-002">рис.2</a>).</p>
+<figure id="fig-002">
+<img src="image/2.png" style="width:85.0%"
+alt="Цель, задание и теоретическое введение" />
+<figcaption aria-hidden="true">Цель, задание и теоретическое
+введение</figcaption>
+</figure>
+<h2 id="описание-выполнения">Описание выполнения</h2>
+<p>Описал процесс выполнения лабораторной работы (см. <a
+href="#fig-003">рис.3</a>).</p>
+<figure id="fig-003">
+<img src="image/3.png" style="width:85.0%"
+alt="Описание процесса выполнения" />
+<figcaption aria-hidden="true">Описание процесса выполнения</figcaption>
+</figure>
+<h2 id="контрольные-вопросы-и-выводы">Контрольные вопросы и выводы</h2>
+<p>Ответил на контрольные вопросы (см. <a href="#fig-005">рис.5</a>) и
+сформулировал выводы.</p>
+<figure id="fig-005">
+<img src="image/5.png" style="width:80.0%" alt="Контрольные вопросы" />
+<figcaption aria-hidden="true">Контрольные вопросы</figcaption>
+</figure>
+<h2 id="компиляция-в-pdf">Компиляция в PDF</h2>
+<p>Скомпилировал отчёт в PDF через pandoc (см. <a
+href="#fig-004">рис.4</a>).</p>
+<figure id="fig-004">
+<img src="image/4.png" style="width:85.0%" alt="Компилирование в PDF" />
+<figcaption aria-hidden="true">Компилирование в PDF</figcaption>
+</figure>
+<h1 id="итоги">Итоги</h1>
+<h2 id="выводы">Выводы</h2>
+<p>В ходе лабораторной работы я освоил оформление отчётов в Markdown и
+научился преобразовывать документ в форматы <code>pdf</code> и
+<code>docx</code> с помощью Pandoc.</p>

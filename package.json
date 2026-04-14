@@ -1,0 +1,13 @@
+{
+  "name": "os-intro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Alexey Lashikov <1032253527@rudn.ru>",
+  "license": "CC-BY-4.0",
+  "config": {
+  	"commitizen": {
+  		"path": "cz-conventional-changelog"
+  	}
+  }
+}
